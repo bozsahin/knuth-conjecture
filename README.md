@@ -26,3 +26,7 @@ You can avoid the hack by supplying the :operators yourself. Try different order
 (find-plan :goal-state 24 :current-state 4 :max-iterations 5 :operators '(op3 op2 op1))
 
 finds a solution to 24 early enough before totally giving up because ops are re-ordered to deliver that.
+
+(find-plan :goal-state (factorial 24) :current-state 4 :max-iterations 10 :operators '(op3 op2 op1))
+
+Finds a solution soon enough, abandoning few paths so that you can see the solution arise in one page.
