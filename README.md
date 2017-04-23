@@ -18,7 +18,7 @@ Some examples:
 
 26 takes 4 ops from 4, and 31 ops from 3.
 
-Solutions to 6 and 720 from either base shows depth-first effect.
+Solutions to 6 and 720 from either base show depth-first effect.
 
 7 is a toughie for both bases.
 
