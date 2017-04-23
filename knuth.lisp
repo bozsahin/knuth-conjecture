@@ -64,7 +64,8 @@
 
 (defun op3 (state)
   (if (integerp (state-val state))
-    (if (> (state-val state) *max-factorizable*)
+    (if (or (> (state-val state) *max-factorizable*)
+	    (< (state-val state) 3))
       nil
       (mk-state (factorial (state-val state)) (+ (state-cost state) 1) 'fact))
     nil))
@@ -75,10 +76,13 @@
 
 (defun make-plan (current-state goal-state operators tr-method goal-test plan-stack
 				iteration max-iterations)
-  (cond ((apply goal-test (args (state-val current-state)(state-val goal-state))) 
+  (cond ((null plan-stack) nil)
+	((apply goal-test (args (state-val current-state)(state-val goal-state))) 
 	 (plan-history (top plan-stack))) ; goal found
-	((null plan-stack) nil)
-	((> iteration max-iterations) (format t "Abandoning after ~A iterations" iteration))
+	((> iteration max-iterations) 
+	 (format t "Abandoning a path after ~A iterations~%" iteration)
+	 (pop plan-stack)
+	 (make-plan (plan-state (top plan-stack)) goal-state operators tr-method goal-test plan-stack 0 max-iterations))
 	(t (let* ((plan (pop plan-stack))
 		  (ph (plan-history plan))
 		  (pst (plan-state plan)))
