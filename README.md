@@ -23,3 +23,8 @@ Some examples:
 720 is easy too, because of previous result.
 
 7 is a toughie for both bases.
+
+2 and 1 are very long from either base, and the trick of avoiding ! is a hack. 1 is easy from either base without !,
+but 2 is not reachable from 3 without !.
+
+You can avoid the back by supplying the :operators yourself. Try different orders too.
