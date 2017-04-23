@@ -27,4 +27,4 @@ Some examples:
 2 and 1 are very long from either base, and the trick of avoiding ! is a hack. 1 is easy from either base without !,
 but 2 is not reachable from 3 without !.
 
-You can avoid the back by supplying the :operators yourself. Try different orders too.
+You can avoid the hack by supplying the :operators yourself. Try different orders too.
