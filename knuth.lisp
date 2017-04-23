@@ -90,8 +90,10 @@
 	     (make-plan (plan-state (top plan-stack)) goal-state operators tr-method goal-test plan-stack (+ iteration 1) max-iterations)))))
 
 (defun find-plan (&key (current-state 3)
-		       (goal-state nil)
-		       (operators '(op1 op2 op3)) 
+		       (goal-state 3)
+		       (operators (if (> current-state goal-state)  ; this hack makes it incomplete because 3-> 2 is not possible
+				    '(op1 op2)
+				    '(op1 op2 op3))) 
 		       (tr-method #'(lambda (state op)(apply op (args state))))
 		       (goal-test #'equal)
 		       (iteration 0)
