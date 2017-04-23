@@ -44,8 +44,8 @@
 (defun state-cost (state)
   (second state))
 
-(defun state-op (op)
-  (third op))
+(defun state-op (state)
+  (third state))
 
 (defun mk-state (val cost op)
   (list val cost op))
