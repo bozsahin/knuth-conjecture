@@ -6,10 +6,6 @@ Some examples:
 
 (find-plan :goal-state 26 :current-state 4)
 
-(find-plan :goal-state 7 :current-state 3 :max-iterations 2000)
-
-(find-plan :goal-state 7 :current-state 4 :max-iterations 2000)
-
 (find-plan :goal-state 6 :current-state 3)
 
 (find-plan :goal-state 6 :current-state 4)
@@ -20,7 +16,7 @@ Some examples:
 
 Solutions to 6 and 720 from either base show depth-first effect.
 
-7 is a toughie for both bases.
+7 is a toughie for both bases. Prepare for garbage-collection or total breakdown.
 
 2 and 1 are very long from either base, and the trick of avoiding ! is a hack. 1 is easy from either base without !,
 but 2 is not reachable from 3 without !.
