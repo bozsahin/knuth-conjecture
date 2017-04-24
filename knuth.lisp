@@ -79,9 +79,9 @@
   (cond ((null plan-stack) nil)
 	((apply goal-test (args (state-val current-state)(state-val goal-state))) 
 	 (plan-history (top plan-stack))) ; goal found
-	((> iteration max-iterations) 
+	((>= iteration max-iterations) 
 	 (format t "Abandoning a path after ~A iterations~%" iteration)
-	 (pop plan-stack)
+	 (dotimes (i max-iterations) (pop plan-stack)) ; goes back to one plan below that led to abandon
 	 (make-plan (plan-state (top plan-stack)) goal-state operators tr-method goal-test plan-stack 0 max-iterations))
 	(t (let* ((plan (pop plan-stack))
 		  (ph (plan-history plan))
